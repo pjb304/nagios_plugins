@@ -31,6 +31,7 @@ use Getopt::Long;
 # load the Pod::Usage module for automatic documentation
 use Pod::Usage;
 
+
 #-------------------------------------------------------------------------------
 # GLOBAL VARIABLES
 #-------------------------------------------------------------------------------
@@ -162,12 +163,11 @@ if ( defined $debug ) {
 
 # get the page
 $mech->get($mw_dl_url);
-
 if ( $mech->success ) {
 
     # get the link matching the string 'Download'
     # in $latest we get an array reference, we dereference it in $latest_url
-    my $latest = $mech->find_link( text_regex => qr/download/ );
+    my $latest = $mech->find_link( text_regex => qr/Download MediaWiki/ );
 
     my $latest_url = $latest->url;
 
